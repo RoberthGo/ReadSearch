@@ -1,4 +1,4 @@
-package com.personal.project.ReadSearch;
+package com.personal.project.readsearch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
