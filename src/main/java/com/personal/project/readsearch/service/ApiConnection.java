@@ -10,7 +10,6 @@ import java.net.http.HttpResponse;
 public class ApiConnection {
     private final String URL_BASE = "https://gutendex.com/books/?";
 
-
     public String request(String url, String input) {
         HttpClient client = HttpClient.newHttpClient();
 

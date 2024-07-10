@@ -8,7 +8,6 @@ import com.personal.project.readsearch.repository.IBookRepository;
 import com.personal.project.readsearch.service.InputValidation;
 import com.personal.project.readsearch.service.ApiConnection;
 import com.personal.project.readsearch.service.ConvertDataInJson;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
@@ -21,7 +20,7 @@ public class Menu {
     private ConvertDataInJson convertData = new ConvertDataInJson();
     private IAuthorRepository authorRepository;
     private IBookRepository bookRepository;
-    private final List<String> validLanguage = List.of(new String[]{"en", "fr", "de", "es", "it", "pt", "nl", "fi", "la", "hu", "da", "no", "sv", "pl", "el", "zh", "ru", "ja", "ca"});
+    private final List<String> validLanguage = List.of("en", "fr", "de", "es", "it", "pt", "nl", "fi", "la", "hu", "da", "no", "sv", "pl", "el", "zh", "ru", "ja", "ca");
 
     public Menu(IBookRepository bookRepository, IAuthorRepository authorRepository) {
         this.bookRepository = bookRepository;
@@ -29,7 +28,7 @@ public class Menu {
     }
 
     public void showMenu() {
-        String ans = "";
+        String ans;
         System.out.println("""
                 |***************************************************|
                 |*****         Welcome to ReadSearch!         ******|
@@ -69,19 +68,21 @@ public class Menu {
                 case "7":
                     showTop10Registered();
                     break;
+                case "8":
+                    System.out.println("Goodbye!");
+                    break;
                 default:
-                    if (!ans.equals("8")) System.out.println("Invalid option. Please try again.");
+                    System.out.println("Invalid option. Please try again.");
                     break;
             }
             System.out.println("Press enter to continue....");
             input.nextString();
         } while (!ans.equals("8"));
-        System.out.println("Goodbye!");
     }
 
     void saveSearchInDataBase() {
         List<Book> books = searchBookByTitle();
-        if (books.size() == 0) {
+        if (books.isEmpty()) {
             System.out.println("The book could not be found! :(");
             return;
         }
@@ -98,24 +99,23 @@ public class Menu {
         System.out.println("Enter the title of the book you want to search:");
         String title = input.nextString();
         String json = connection.request("search=", title);
-        List<Book> books = convertData.getData(json, Data.class)
-                .books()
-                .stream()
-                .filter(e -> e.title().toUpperCase().contains(title.toUpperCase()))
-                .map(e -> new Book(e))
-                .collect(Collectors.toList());
-        return books;
+        try {
+            return convertData.getData(json, Data.class).books().stream().filter(e -> e.title().toUpperCase().contains(title.toUpperCase())).map(e -> new Book(e)).collect(Collectors.toList());
+        } catch (RuntimeException e) {
+            System.out.println("Unexpected error");
+            System.out.println("Api may not be available");
+            return List.of();
+        }
+
     }
 
 
     void listRegisteredBooks() {
-        System.out.println("The registered books are:\n");
-        printList(bookRepository.findAll());
+        printList(bookRepository.findAll(), "The registered books are:\n");
     }
 
     void listRegisteredAuthors() {
-        System.out.println("The registered Authors are:\n");
-        printList(authorRepository.findAll());
+        printList(authorRepository.findAll(), "The registered Authors are:\n");
     }
 
     void listLivingAuthors() {
@@ -126,8 +126,7 @@ public class Menu {
             birthYear = input.nextInt("Write the year of birth: ");
             deadYear = input.nextInt("Write the year of death: ");
         }
-        System.out.println("The living authors are:");
-        printList(authorRepository.findAuthorByBirthYearGreaterThanEqualAndBirthYearLessThanEqual(birthYear, deadYear));
+        printList(authorRepository.findAuthorByBirthYearGreaterThanEqualAndBirthYearLessThanEqual(birthYear, deadYear), "The living authors are:\n");
     }
 
     void listBooksByLanguage() {
@@ -148,48 +147,47 @@ public class Menu {
         }
 
         List<Book> books = bookRepository.findByLanguagesIsLikeIgnoreCase("%" + language + "%");
-        if (books.size() == 0) {
+        if (books.isEmpty()) {
             System.out.println("There are no books with this language :(");
             return;
         }
-        System.out.println("Results for the language " + language + ": " + books.size() + "\n");
-        printList(books);
-        DoubleSummaryStatistics stats = books.stream().mapToDouble(Book::getDownload_count).summaryStatistics();
-        System.out.println("---------------------------------");
-        System.out.println("Max download count: " + stats.getMax());
-        System.out.println("Min download count: " + stats.getMin());
-        System.out.println("Total download count: " + stats.getSum());
-        System.out.println("Average download count: " + stats.getAverage());
-        System.out.println("----------------------------------");
+        printList(books, "Results for the language " + language + ": " + books.size() + "\n");
+        if (!books.isEmpty()) {
+            DoubleSummaryStatistics stats = books.stream().mapToDouble(Book::getDownload_count).summaryStatistics();
+            System.out.println("---------------------------------");
+            System.out.println("Max download count: " + stats.getMax());
+            System.out.println("Min download count: " + stats.getMin());
+            System.out.println("Total download count: " + stats.getSum());
+            System.out.println("Average download count: " + stats.getAverage());
+            System.out.println("----------------------------------");
+        }
     }
 
     void showTop10() {
-        String json = connection.request("", "");
-        List<Book> books = convertData.getData(json, Data.class)
-                .books()
-                .stream()
-                .map(e -> new Book(e))
-                .collect(Collectors.toList());
-        printList(SortTop10(books));
+        try {
+            String json = connection.request("", "");
+            List<Book> books = convertData.getData(json, Data.class).books().stream().map(e -> new Book(e)).collect(Collectors.toList());
+            printList(SortTop10(books), "Top 10:\n-------------------\n");
+        } catch (RuntimeException e) {
+            System.out.println("Unexpected error");
+            System.out.println("Api may not be available");
+        }
     }
 
     void showTop10Registered() {
-        printList(SortTop10(bookRepository.findAll()));
+        printList(SortTop10(bookRepository.findAll()), "Top 10:\n-------------------\n");
     }
 
     List<Book> SortTop10(List<Book> books) {
-        System.out.println("Top 10:\n-------------------\n");
-        return books.stream()
-                .sorted(Comparator.comparing(Book::getDownload_count).reversed())
-                .limit(10)
-                .collect(Collectors.toList());
+        return books.stream().sorted(Comparator.comparing(Book::getDownload_count).reversed()).limit(10).collect(Collectors.toList());
     }
 
-    public <T> void printList(List<T> entity) {
-        if (entity.size() == 0) {
+    public <T> void printList(List<T> entity, String message) {
+        if (entity.isEmpty()) {
             System.out.println("No records are available!");
         } else {
-            entity.stream().forEach(e -> System.out.println(e));
+            System.out.println(message);
+            entity.forEach(System.out::println);
         }
     }
 }
