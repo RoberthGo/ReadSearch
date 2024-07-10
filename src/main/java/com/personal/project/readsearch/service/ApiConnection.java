@@ -11,10 +11,10 @@ public class ApiConnection {
     private final String URL_BASE = "https://gutendex.com/books/?";
 
 
-    public String request(String url,String input) {
+    public String request(String url, String input) {
         HttpClient client = HttpClient.newHttpClient();
 
-        url = URL_BASE + url+URLEncoder.encode(input);
+        url = URL_BASE + url + URLEncoder.encode(input);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();

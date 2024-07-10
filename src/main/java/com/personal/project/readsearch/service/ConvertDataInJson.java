@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ConvertDataInJson {
     private ObjectMapper mapper;
 
-    public <T> T getData(String json, Class<T> model){
+    public <T> T getData(String json, Class<T> model) {
         this.mapper = new ObjectMapper();
         try {
             return this.mapper.readValue(json, model);

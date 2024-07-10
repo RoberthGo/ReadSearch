@@ -11,6 +11,7 @@ import com.personal.project.readsearch.service.ConvertDataInJson;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Comparator;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -147,14 +148,23 @@ public class Menu {
         }
 
         List<Book> books = bookRepository.findByLanguagesIsLikeIgnoreCase("%" + language + "%");
-        if (books.size() > 0) {
-            System.out.println(books.size() + " record books were found in the language " + language);
+        if (books.size() == 0) {
+            System.out.println("There are no books with this language :(");
+            return;
         }
+        System.out.println("Results for the language " + language + ": " + books.size() + "\n");
         printList(books);
+        DoubleSummaryStatistics stats = books.stream().mapToDouble(Book::getDownload_count).summaryStatistics();
+        System.out.println("---------------------------------");
+        System.out.println("Max download count: " + stats.getMax());
+        System.out.println("Min download count: " + stats.getMin());
+        System.out.println("Total download count: " + stats.getSum());
+        System.out.println("Average download count: " + stats.getAverage());
+        System.out.println("----------------------------------");
     }
 
     void showTop10() {
-        String json = connection.request("","");
+        String json = connection.request("", "");
         List<Book> books = convertData.getData(json, Data.class)
                 .books()
                 .stream()
@@ -163,7 +173,7 @@ public class Menu {
         printList(SortTop10(books));
     }
 
-    void showTop10Registered(){
+    void showTop10Registered() {
         printList(SortTop10(bookRepository.findAll()));
     }
 

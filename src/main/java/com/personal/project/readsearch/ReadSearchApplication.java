@@ -10,18 +10,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ReadSearchApplication implements CommandLineRunner {
-	@Autowired
-	private IAuthorRepository authorRepository;
-	@Autowired
-	private IBookRepository bookRepository;
+    @Autowired
+    private IAuthorRepository authorRepository;
+    @Autowired
+    private IBookRepository bookRepository;
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReadSearchApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ReadSearchApplication.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		Menu menu = new Menu(bookRepository,authorRepository);
-		menu.showMenu();
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        Menu menu = new Menu(bookRepository, authorRepository);
+        menu.showMenu();
+    }
 }

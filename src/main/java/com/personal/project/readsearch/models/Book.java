@@ -14,19 +14,19 @@ public class Book {
     private Long id;
     @Column(unique = true)
     private String title;
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Author> authors = new ArrayList<>();
 
     private String languages;
     private Long download_count;
 
-    public Book(){
+    public Book() {
     }
 
     public Book(BookData book) {
         this.title = book.title();
-        this.authors = book.authors().stream().map(e->new Author(e)).collect(Collectors.toList());
-        this.languages = book.languages().stream().map(e->e.toString()).collect(Collectors.joining(","));
+        this.authors = book.authors().stream().map(e -> new Author(e)).collect(Collectors.toList());
+        this.languages = book.languages().stream().map(e -> e.toString()).collect(Collectors.joining(","));
         this.download_count = book.downloadCount();
     }
 
@@ -57,7 +57,7 @@ public class Book {
     @Override
     public String toString() {
         String authorString = authors.stream()
-                .map(e->e.toString())
+                .map(e -> e.toString())
                 .collect(Collectors.joining("\n"));
         return "Book: " + title + "\n"
                 + "Download Count: " + download_count + "\n"

@@ -16,16 +16,16 @@ public class Author {
     @Column(nullable = true)
     private int deathYear;
     private String name;
-    @ManyToMany (mappedBy = "authors", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)
     private List<Book> books = new ArrayList<>();
 
-    public Author(){
+    public Author() {
     }
 
-    public Author(AuthorData author){
-        this.birthYear=author.birthYear();
-        this.deathYear=author.deathYear();
-        this.name=author.name();
+    public Author(AuthorData author) {
+        this.birthYear = author.birthYear();
+        this.deathYear = author.deathYear();
+        this.name = author.name();
     }
 
     public String getName() {
