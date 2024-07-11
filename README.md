@@ -60,7 +60,7 @@ CREATE DATABASE read_search
 </p>
 Replace the environment variables with the corresponding data from your PostgreSQL.
 Or create environment variables with the same names and assign the appropriate values. </br>
-Note: If you run the above SQL command as is, ${DB_NAME} will be read_search otherwise put the name of your database.
+Note: If you run the above SQL command as is, ${DB_NAME} will be read_search otherwise put the name of your database.</br>
 5. ready, now you can run the application with your IDE or Maven.
 </br></br>
 
