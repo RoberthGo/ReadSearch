@@ -16,8 +16,8 @@ Project developed for the ONE-Backend program. This console application consumes
 ## ⚙️ Application functions
 * Consuming the gutendex Api to search for books
 * Storing books and authors in a PostgreSQL database
-* perform queries on the database </br></br>
-
+* perform queries on the database
+  
 <p align="center">
   <img src="https://github.com/RoberthGo/ReadSearch/assets/109862992/f0ad3ad0-0e1f-4e34-a064-15d390d40948">
 </p>
