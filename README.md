@@ -18,7 +18,7 @@ Project developed for the ONE-Backend program. This console application consumes
 * perform queries on the database </br></br>
 
 <p align="center">
-![image](https://github.com/RoberthGo/ReadSearch/assets/109862992/f0ad3ad0-0e1f-4e34-a064-15d390d40948)
+  <img src="https://github.com/RoberthGo/ReadSearch/assets/109862992/f0ad3ad0-0e1f-4e34-a064-15d390d40948">
 </p>
 
 * Search book by title - Allows you to search for books by querying the Gutendex API and store the results in the PostgreSQL database.
@@ -53,14 +53,15 @@ CREATE DATABASE read_search
 ```
 3. Configure the file [application.properties](src\main\resources\application.properties)
 <p align="center">
-![image](https://github.com/RoberthGo/ReadSearch/assets/109862992/463767e8-106d-4c5c-8042-c5f1310f1855)
+  <img src="https://github.com/RoberthGo/ReadSearch/assets/109862992/463767e8-106d-4c5c-8042-c5f1310f1855")>
 </p>
 Replace the environment variables with the corresponding data from your PostgreSQL.
 Or create environment variables with the same names and assign the appropriate values.
 Note: If you run the above SQL command as is, ${DB_NAME} will be read_search otherwise put the name of your database.
 5. ready, now you can run the application with your IDE or Maven.
    
-</br>
+
+
 
 ## Built with 🛠️
 * Java JDK - Lenguaje de Programación Utilizado
