@@ -10,7 +10,8 @@
 
 Project developed for the ONE-Backend program. This console application consumes the Gutendex API to query books and store them in a PostgreSQL database. It also performs queries on the stored data to retrieve information.
 
-</br>
+
+
 
 ## ⚙️ Application functions
 * Consuming the gutendex Api to search for books
@@ -30,7 +31,8 @@ Project developed for the ONE-Backend program. This console application consumes
 * Top 10 most downloaded registered books - Similar to option 6, but specifically for books registered in the local database.
 * Exit - Closes the ReadSearch application.
 
-</br>
+
+
 
 ## Prerequisites 📋
 To run the program, you need the following technologies used during its development:
@@ -40,7 +42,8 @@ To run the program, you need the following technologies used during its developm
 * IntelliJ IDEA: It is the IDE used for the development of the project. Although it is not strictly necessary to run the program, its use is recommended to facilitate the development and code management. 
   development and code management. You can download IntelliJ IDEA [here](https://www.jetbrains.com/es-es/idea/).
 
-</br>
+
+
 
 ## Installation 🔧
 1. Clone the application
@@ -56,10 +59,11 @@ CREATE DATABASE read_search
   <img src="https://github.com/RoberthGo/ReadSearch/assets/109862992/463767e8-106d-4c5c-8042-c5f1310f1855")>
 </p>
 Replace the environment variables with the corresponding data from your PostgreSQL.
-Or create environment variables with the same names and assign the appropriate values.
+Or create environment variables with the same names and assign the appropriate values. </br>
 Note: If you run the above SQL command as is, ${DB_NAME} will be read_search otherwise put the name of your database.
 5. ready, now you can run the application with your IDE or Maven.
    
+
 
 
 
@@ -73,7 +77,8 @@ Note: If you run the above SQL command as is, ${DB_NAME} will be read_search oth
 * PostgreSQL - Sistema de gestión de bases de datos utilizado en el proyecto.
 * Jackson Databind - Biblioteca para convertir serializar y desserializar JSON
 
-</br>
+
+
 
 ## Author ✒️
 * **Roberto Gordillo Herrera** - [Roberth_G](https://github.com/RoberthGo)
