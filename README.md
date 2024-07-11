@@ -11,11 +11,13 @@
 Project developed for the ONE-Backend program. This console application consumes the Gutendex API to query books and store them in a PostgreSQL database. It also performs queries on the stored data to retrieve information.
 
 
-⚙️ Application functions
+
+## ⚙️ Application functions
 * Consuming the gutendex Api to search for books
 * Storing books and authors in a PostgreSQL database
-* perform queries on the database
+* perform queries on the database </br>
 ![image](https://github.com/RoberthGo/ReadSearch/assets/109862992/f0ad3ad0-0e1f-4e34-a064-15d390d40948)
+</br>
 * Search book by title - Allows you to search for books by querying the Gutendex API and store the results in the PostgreSQL database.
 * List registered books - Displays a catalog of all books that have been registered in the local database.
 * List registered authors - Displays a list of all authors whose works are included in the database.
@@ -36,6 +38,7 @@ To run the program, you need the following technologies used during its developm
   development and code management. You can download IntelliJ IDEA [here](https://www.jetbrains.com/es-es/idea/).
 
 
+
 ## Installation 🔧
 1. Clone the application
 ```  
@@ -53,6 +56,7 @@ Note: If you run the above SQL command as is, ${DB_NAME} will be read_search oth
 4. ready, now you can run the application with your IDE or Maven.
    
 
+
 ## Built with 🛠️
 * Java JDK - Lenguaje de Programación Utilizado
 * Spring Boot - Framework de Java usado
@@ -64,8 +68,10 @@ Note: If you run the above SQL command as is, ${DB_NAME} will be read_search oth
 * Jackson Databind - Biblioteca para convertir serializar y desserializar JSON
 
 
+
 ## Author ✒️
 * **Roberto Gordillo Herrera** - [Roberth_G](https://github.com/RoberthGo)
+
 
 
 ## Licencia 📄
