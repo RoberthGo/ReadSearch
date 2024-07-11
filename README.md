@@ -9,7 +9,7 @@
 
 
 Project developed for the ONE-Backend program. This console application consumes the Gutendex API to query books and store them in a PostgreSQL database. It also performs queries on the stored data to retrieve information.
-
+</br></br>
 
 
 
@@ -30,7 +30,7 @@ Project developed for the ONE-Backend program. This console application consumes
 * Top 10 most downloaded books in the API - Displays the 10 most popular books according to the Gutendex API download count.
 * Top 10 most downloaded registered books - Similar to option 6, but specifically for books registered in the local database.
 * Exit - Closes the ReadSearch application.
-
+</br></br>
 
 
 
@@ -41,7 +41,7 @@ To run the program, you need the following technologies used during its developm
 * Maven: version 4 or higher, for dependency management and project construction.
 * IntelliJ IDEA: It is the IDE used for the development of the project. Although it is not strictly necessary to run the program, its use is recommended to facilitate the development and code management. 
   development and code management. You can download IntelliJ IDEA [here](https://www.jetbrains.com/es-es/idea/).
-
+</br></br>
 
 
 
@@ -62,7 +62,7 @@ Replace the environment variables with the corresponding data from your PostgreS
 Or create environment variables with the same names and assign the appropriate values. </br>
 Note: If you run the above SQL command as is, ${DB_NAME} will be read_search otherwise put the name of your database.
 5. ready, now you can run the application with your IDE or Maven.
-   
+</br></br>
 
 
 
@@ -76,13 +76,13 @@ Note: If you run the above SQL command as is, ${DB_NAME} will be read_search oth
 * Intellij -  Entorno de desarrollo integrado (IDE) utilizado para el proyecto
 * PostgreSQL - Sistema de gestión de bases de datos utilizado en el proyecto.
 * Jackson Databind - Biblioteca para convertir serializar y desserializar JSON
-
+</br></br>
 
 
 
 ## Author ✒️
 * **Roberto Gordillo Herrera** - [Roberth_G](https://github.com/RoberthGo)
-
+</br>
 
 
 ## Licencia 📄
