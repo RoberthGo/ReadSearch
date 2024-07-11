@@ -54,7 +54,7 @@ git clone https://github.com/RoberthGo/ReadSearch
 ```
 CREATE DATABASE read_search
 ```
-3. Configure the file [application.properties](\src\main\resources\application.properties)
+3. Configure the file [application.properties](src/main/resources/application.properties)
 <p align="center">
   <img src="https://github.com/RoberthGo/ReadSearch/assets/109862992/463767e8-106d-4c5c-8042-c5f1310f1855")>
 </p>
