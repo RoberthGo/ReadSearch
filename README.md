@@ -10,14 +10,17 @@
 
 Project developed for the ONE-Backend program. This console application consumes the Gutendex API to query books and store them in a PostgreSQL database. It also performs queries on the stored data to retrieve information.
 
-
+</br>
 
 ## ⚙️ Application functions
 * Consuming the gutendex Api to search for books
 * Storing books and authors in a PostgreSQL database
-* perform queries on the database </br>
+* perform queries on the database </br></br>
+
+<p align="center">
 ![image](https://github.com/RoberthGo/ReadSearch/assets/109862992/f0ad3ad0-0e1f-4e34-a064-15d390d40948)
-</br>
+</p>
+
 * Search book by title - Allows you to search for books by querying the Gutendex API and store the results in the PostgreSQL database.
 * List registered books - Displays a catalog of all books that have been registered in the local database.
 * List registered authors - Displays a list of all authors whose works are included in the database.
@@ -27,7 +30,7 @@ Project developed for the ONE-Backend program. This console application consumes
 * Top 10 most downloaded registered books - Similar to option 6, but specifically for books registered in the local database.
 * Exit - Closes the ReadSearch application.
 
-
+</br>
 
 ## Prerequisites 📋
 To run the program, you need the following technologies used during its development:
@@ -37,7 +40,7 @@ To run the program, you need the following technologies used during its developm
 * IntelliJ IDEA: It is the IDE used for the development of the project. Although it is not strictly necessary to run the program, its use is recommended to facilitate the development and code management. 
   development and code management. You can download IntelliJ IDEA [here](https://www.jetbrains.com/es-es/idea/).
 
-
+</br>
 
 ## Installation 🔧
 1. Clone the application
@@ -48,14 +51,16 @@ git clone https://github.com/RoberthGo/ReadSearch
 ```
 CREATE DATABASE read_search
 ```
-3. Configure the file [application.properties](src\main\resources\application.properties) 
+3. Configure the file [application.properties](src\main\resources\application.properties)
+<p align="center">
 ![image](https://github.com/RoberthGo/ReadSearch/assets/109862992/463767e8-106d-4c5c-8042-c5f1310f1855)
+</p>
 Replace the environment variables with the corresponding data from your PostgreSQL.
 Or create environment variables with the same names and assign the appropriate values.
 Note: If you run the above SQL command as is, ${DB_NAME} will be read_search otherwise put the name of your database.
-4. ready, now you can run the application with your IDE or Maven.
+5. ready, now you can run the application with your IDE or Maven.
    
-
+</br>
 
 ## Built with 🛠️
 * Java JDK - Lenguaje de Programación Utilizado
@@ -67,7 +72,7 @@ Note: If you run the above SQL command as is, ${DB_NAME} will be read_search oth
 * PostgreSQL - Sistema de gestión de bases de datos utilizado en el proyecto.
 * Jackson Databind - Biblioteca para convertir serializar y desserializar JSON
 
-
+</br>
 
 ## Author ✒️
 * **Roberto Gordillo Herrera** - [Roberth_G](https://github.com/RoberthGo)
