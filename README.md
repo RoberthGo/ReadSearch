@@ -68,14 +68,14 @@ Note: If you run the above SQL command as is, ${DB_NAME} will be read_search oth
 
 
 ## Built with 🛠️
-* Java JDK - Lenguaje de Programación Utilizado
-* Spring Boot - Framework de Java usado
-* Hibernate: Persistence provider used by JPA
-* Spring Data JPA: Utilizado para el mapeo objeto-relacional y la persistencia de datos.
-* Maven - Manejador de dependencias
-* Intellij -  Entorno de desarrollo integrado (IDE) utilizado para el proyecto
-* PostgreSQL - Sistema de gestión de bases de datos utilizado en el proyecto.
-* Jackson Databind - Biblioteca para convertir serializar y desserializar JSON
+* Java JDK - Programming Language Used
+* Spring Boot - Java Framework used
+* Hibernate: Persistence provider used by JPA.
+* Spring Data JPA: Used for object-relational mapping and data persistence.
+* Maven - Dependency handler.
+* Intellij - Integrated Development Environment (IDE) used for the project.
+* PostgreSQL - Database management system used in the project.
+* Jackson Databind: Convert data between JSON and Java objects 
 </br></br>
 
 
