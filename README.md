@@ -69,7 +69,8 @@ Note: If you run the above SQL command as is, ${DB_NAME} will be read_search oth
 
 ## Built with 🛠️
 * Java JDK - Programming Language Used
-* Spring Boot - Java Framework used
+* Spring - Java Framework used
+* Spring Boot - spring technology
 * Hibernate: Persistence provider used by JPA.
 * Spring Data JPA: Used for object-relational mapping and data persistence.
 * Maven - Dependency handler.
